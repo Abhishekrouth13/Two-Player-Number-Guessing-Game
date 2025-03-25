@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int r1 = (int) (Math.random() * 101); // Random number between 0 and 100 for player 1
+        int r2 = (int) (Math.random() * 101); // Random number between 0 and 100 for player 2
+        int n = 0, c = 0, d = 0, m = 0;
+
+        System.out.println("Welcome to the Random Number Game by Abhishek!");
+
+        // Player 1's turn
+        System.out.println("Player 1, it's your turn!");
+        while (r1 != n) {
+            System.out.println("Guess a number:");
+            n = scanner.nextInt();
+
+            if (n > r1) {
+                System.out.println("Your guessed number is more than the random number.");
+                c++;
+            } else if (n < r1) {
+                System.out.println("Your guessed number is less than the random number.");
+                c++;
+            } else {
+                System.out.println("Player 1 guessed the number right in " + (c + 1) + " attempts!");
+            }
+        }
+
+        // Player 2's turn
+        System.out.println("\nNow it's Player 2's turn!");
+        while (r2 != m) {
+            System.out.println("Guess a number:");
+            m = scanner.nextInt();
+
+            if (m > r2) {
+                System.out.println("Your guessed number is more than the random number.");
+                d++;
+            } else if (m < r2) {
+                System.out.println("Your guessed number is less than the random number.");
+                d++;
+            } else {
+                System.out.println("Player 2 guessed the number right in " + (d + 1) + " attempts!");
+            }
+        }
+
+        // Announce the winner
+        System.out.println("\nGame Over!");
+        if (c < d) {
+            System.out.println("Player 1 wins! Congratulations!");
+        } else if (c > d) {
+            System.out.println("Player 2 wins! Congratulations!");
+        } else {
+            System.out.println("It's a tie! Both players are winners!");
+        }
+
+        scanner.close();
+    }
+}
